@@ -33,6 +33,8 @@ const getStatusLabel = (status: OrderStatus) => {
     if (status === 'FINISHED') return "Finalizado"
     if (status === 'IN_PREPARATION') return "Em preparo"
     if (status === 'PENDING') return "Pendente"
+    if (status === 'PAYMENT_CONFIRMED') return "Pagamento confirmado"
+    if (status === 'PAYMENT_FAILED') return "Pagamento falhou"
     return ""
 }
 const OrderList = ({orders}: OrderListProps) => {
@@ -40,20 +42,22 @@ const OrderList = ({orders}: OrderListProps) => {
     const handleBackClick = () => router.back();
     return ( 
         <div className="space-y-6 p-6">
-           <Button size="icon" variant="secondary" className="rounded-full" onClick={handleBackClick}>
+           <Button 
+           size="icon" 
+           variant="secondary" 
+           className="rounded-full" 
+           onClick={handleBackClick}>
             <ChevronLeftIcon />
             </Button> 
             <div className="flex items-center gap-3">
             <ScrollTextIcon />
-            <h2 className="text-lg font-semibold">
-                Meus Pedidos
-            </h2>
+            <h2 className="text-lg font-semibold">Meus Pedidos</h2>
             </div>
             {orders.map((order) => (
                 <Card key={order.id}>
                     <CardContent className="p-5 space-y-4">
                     <div 
-                    className={`w-fit rounded-full px-2 py-1 text-xs font-semibold text-white ${order.status === OrderStatus.FINISHED ? "bg-green-500 text-white" : "bg-grey-200 text-gray-400"}`}
+                    className={`w-fit rounded-full px-2 py-1 text-xs font-semibold text-white ${([OrderStatus.PAYMENT_CONFIRMED, OrderStatus.FINISHED] as OrderStatus[]).includes(order.status) ? "bg-green-500 text-white" : "bg-gray-200 text-gray-500"} `}
                     >
                     {getStatusLabel(order.status)}
                     </div>
