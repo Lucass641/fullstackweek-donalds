@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FSW Donalds
 
-## Getting Started
+FSW Donalds é um aplicativo mobile inspirado no McDonald's, permitindo que os usuários realizem pedidos de comida para viagem ou para consumo imediato. O projeto foi desenvolvido utilizando **Next.js, Prisma e NeonDB**.
 
-First, run the development server:
+## Funcionalidades
 
+- Escolha entre **"Pedir para Viagem"** ou **"Comer Agora"**.
+- Navegue pelo **menu** e selecione **combos** ou **lanches individuais**.
+- Visualize os **ingredientes** de cada item antes da compra.
+- Defina a **quantidade** e adicione itens à sacola.
+- Finalize o pedido preenchendo um pequeno **formulário** com **nome e CPF**.
+- Pagamento via **Stripe** com cartão de crédito.
+- Após a finalização, acompanhe o **status do pedido**.
+
+## Tecnologias Utilizadas
+
+- **Next.js** - Framework React para aplicações web e mobile.
+- **Prisma** - ORM para gerenciamento de banco de dados.
+- **NeonDB** - Banco de dados PostgreSQL em nuvem.
+- **Stripe** - Plataforma de pagamento online.
+
+## Como Rodar o Projeto
+
+### 1. Clone o repositório
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/fsw-donalds.git
+cd fsw-donalds
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instale as dependências
+```bash
+yarn install
+# ou
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configure as variáveis de ambiente
+Crie um arquivo **.env** e adicione as configurações necessárias:
+```env
+DATABASE_URL=postgresql://seu-usuario:senha@neondb.io:5432/fsw-donalds
+STRIPE_SECRET_KEY=sua-chave-secreta-stripe
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=sua-chave-publica-stripe
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Rode as migrações do Prisma
+```bash
+npx prisma migrate dev
+```
 
-## Learn More
+### 5. Inicie o servidor
+```bash
+yarn dev
+# ou
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Contato
+Caso tenha alguma dúvida ou sugestão, fique à vontade para abrir uma issue ou entrar em contato!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feito com ❤️ por Lucas Grangeiro
