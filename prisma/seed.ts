@@ -16,8 +16,6 @@ const main = async () => {
           "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQvcNP9rHlEJu1vCY5kLqzjf29HKaeN78Z6pRy",
         coverImageUrl:
           "https://u9a6wmr3as.ufs.sh/f/jppBrbk0cChQac8bHYlkBUjlHSKiuseLm2hIFzVY0OtxEPnw",
-          homeImageUrl:
-          "https://w0.peakpx.com/wallpaper/2/496/HD-wallpaper-mcdonalds-mac-donalds-macdonalds-macdonalds-minimalist-minimalist-mcdonalds.jpg",
       },
     });
     const combosCategory = await tx.menuCategory.create({

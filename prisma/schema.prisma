@@ -20,7 +20,6 @@ model Restaurant {
   description    String
   avatarImageUrl String
   coverImageUrl  String
-  homeImageUrl   String
   menuCategories MenuCategory[]
   products       Product[]
   order          Order[]
