@@ -1,6 +1,6 @@
 # FSW Donalds
 
-FSW Donalds é um aplicativo mobile inspirado no McDonald's, permitindo que os usuários realizem pedidos de comida para viagem ou para consumo imediato. O projeto foi desenvolvido utilizando **Next.js, Prisma e NeonDB**.
+FSW Donalds é um aplicativo mobile inspirado no McDonald's, permitindo que os usuários realizem pedidos de comida para viagem ou para consumo imediato. O projeto foi desenvolvido utilizando **Next.js, Prisma, NeonDB e Webhooks do Stripe**.
 
 ## Funcionalidades
 
@@ -11,6 +11,7 @@ FSW Donalds é um aplicativo mobile inspirado no McDonald's, permitindo que os u
 - Finalize o pedido preenchendo um pequeno **formulário** com **nome e CPF**.
 - Pagamento via **Stripe** com cartão de crédito.
 - Após a finalização, acompanhe o **status do pedido**.
+- Uso de **webhooks do Stripe** para atualizar o status do pagamento em tempo real.
 
 ## Tecnologias Utilizadas
 
@@ -18,13 +19,14 @@ FSW Donalds é um aplicativo mobile inspirado no McDonald's, permitindo que os u
 - **Prisma** - ORM para gerenciamento de banco de dados.
 - **NeonDB** - Banco de dados PostgreSQL em nuvem.
 - **Stripe** - Plataforma de pagamento online.
+- **Webhooks do Stripe** - Para comunicação assíncrona e atualizações automáticas do pagamento.
 
 ## Como Rodar o Projeto
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/fsw-donalds.git
-cd fsw-donalds
+git clone https://github.com/Lucass641/fullstackweek-donalds.git
+cd fullstackweek-donalds
 ```
 
 ### 2. Instale as dependências
@@ -39,7 +41,8 @@ Crie um arquivo **.env** e adicione as configurações necessárias:
 ```env
 DATABASE_URL=postgresql://seu-usuario:senha@neondb.io:5432/fsw-donalds
 STRIPE_SECRET_KEY=sua-chave-secreta-stripe
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=sua-chave-publica-stripe
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=sua-chave-publica-stripe
+STRIPE_WEBHOOK_SECRET_KEY=sua-chave-secreta-webhook
 ```
 
 ### 4. Rode as migrações do Prisma
@@ -59,4 +62,5 @@ Caso tenha alguma dúvida ou sugestão, fique à vontade para abrir uma issue ou
 
 ---
 
-Feito com ❤️ por Lucas Grangeiro
+Feito com ❤️ por Lucas Grangeiro durante o evento Fullstack Week.
+
